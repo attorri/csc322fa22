@@ -34,21 +34,36 @@ geom.computeVertexNormals();
 */
 
 var geometry1 = new THREE.PlaneGeometry( .55, 5 );
-const white = new THREE.Color('rgb(255,255,255)'); 
-var material1 = new THREE.MeshStandardMaterial({color: white, flatShading: true});
-var plane1 = new THREE.Mesh( geometry1, material1 );
-const navyBlue = new THREE.Color('rgb(165,42,42)'); 
-new THREE.MeshStandardMaterial({color: white, flatShading: true});
-const material2 = new THREE.MeshStandardMaterial({color: navyBlue, flatShading: true});
-const plane2 = new THREE.Mesh( geometry1, material2);
 
-plane2.position.x += .55;
-plane2.position.z += -.55;
+const white = new THREE.Color('rgb(255,255,255)'); 
+const red = new THREE.Color('rgb(165,42,42)'); 
+const green = new THREE.Color( 0x00ff00 );
+
+//new THREE.MeshStandardMaterial({color: white, flatShading: true});
+
+var material1 = new THREE.MeshStandardMaterial({color: white, flatShading: true});
+var material2 = new THREE.MeshStandardMaterial({color: red, flatShading: true});
+var material3 = new THREE.MeshStandardMaterial({color: green, flatShading: true});
+
+
+var plane1 = new THREE.Mesh( geometry1, material1 );
+var plane2 = new THREE.Mesh( geometry1, material2);
+var plane3 = new THREE.Mesh( geometry1, material3);
+
+plane2.position.x += 0.275;
+plane2.position.z += 0.275;
+plane2.rotation.y += 0.5*(Math.PI);
+//plane2.position.y += .15;
+//plane2.position.z += .55;
+//plane3.position.x -= .55;
+plane3.position.x += -0.275;
+plane3.position.z += 0.275;
+plane3.rotation.y += 0.5*(Math.PI);
 
 
 //var mesh = new THREE.Mesh(geom, mat);
 
-scene.add(plane1, plane2);
+scene.add(plane1, plane2, plane3);
 
 renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
