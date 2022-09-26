@@ -1,0 +1,118 @@
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 100);
+camera.position.set(3, 9, 12);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+var contrls = new THREE.OrbitControls(camera, renderer.domElement);
+
+var light = new THREE.DirectionalLight(0xffffff, 0.75);
+light.position.setScalar(1);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+/*
+var pts = [
+	new THREE.Vector3(0.5, 0.5, 0.5),
+  new THREE.Vector3(0, 0, 0),
+  new THREE.Vector3(0, 0, 1),
+  new THREE.Vector3(1, 0, 1),
+  new THREE.Vector3(1, 0, 0)
+];
+
+var geom = new THREE.BufferGeometry().setFromPoints(pts);
+geom.setIndex([
+	0, 1, 2,
+  0, 2, 3, 
+  0, 3, 4,
+  0, 4, 1,
+  1, 3, 2,
+  1, 4, 3
+]);
+geom.computeVertexNormals();
+*/
+
+var geometry1 = new THREE.PlaneGeometry( .55, 5 );
+var demoGeometry = new THREE.PlaneGeometry( .34, .55 );
+var geometry2 = new THREE.PlaneGeometry( .34, .34);
+
+const white = new THREE.Color('rgb(255,255,255)'); 
+const red = new THREE.Color('rgb(165,42,42)'); 
+const green = new THREE.Color( 0x00ff00 );
+const navy = new THREE.Color('rgb(0,0,192)');
+const lavender = new THREE.Color('rgb(230,230,250)');
+const orange = new THREE.Color('rgb(255,69,0)');
+const pink = new THREE.Color('rgb(255,20,147)');
+
+//new THREE.MeshStandardMaterial({color: white, flatShading: true});
+
+var material1 = new THREE.MeshStandardMaterial({color: white, flatShading: true});
+var material2 = new THREE.MeshStandardMaterial({color: red, flatShading: true});
+var material3 = new THREE.MeshStandardMaterial({color: green, flatShading: true});
+var material4 = new THREE.MeshStandardMaterial({color: navy, flatShading: true});
+var material5 = new THREE.MeshStandardMaterial({color: lavender, flatShading: true});
+var material6 = new THREE.MeshStandardMaterial({color: orange, flatShading: true});
+var material7 = new THREE.MeshStandardMaterial({color: pink, flatShading: true});
+var material8 = new THREE.LineBasicMaterial( { color: 0x00FF80 } );
+
+
+
+
+var plane1 = new THREE.Mesh( geometry1, material1 );
+var plane2 = new THREE.Mesh( geometry1, material2);
+var plane3 = new THREE.Mesh( geometry1, material3);
+var plane4 = new THREE.Mesh( geometry1, material4);
+
+
+var triPlane1 = new THREE.Mesh( geometry2, material5);
+var triPlane2 = new THREE.Mesh( geometry2, material6);
+var triPlane3 = new THREE.Mesh( geometry2, material1);
+var triPlane4 = new THREE.Mesh( geometry2, material7);
+
+//height = 2.75 - Math.sqrt((0.34*0.34)+(.34*.34));
+
+plane2.position.x += 0.275;
+plane2.position.z += 0.275;
+plane2.rotation.y += 0.5*(Math.PI);
+//plane2.position.y += .15;
+//plane2.position.z += .55;
+//plane3.position.x -= .55;
+plane3.position.x += -0.275;
+plane3.position.z += 0.275;
+plane3.rotation.y += -0.5*(Math.PI);
+plane4.position.z += 0.55;
+
+
+
+triPlane1.position.y += 2.5;
+triPlane1.rotation.z += 0.25*(Math.PI);
+triPlane1.rotation.x += 0.25*(Math.PI);
+triPlane2.position.y += 2.5;
+triPlane2.position.z += .55;
+triPlane2.rotation.z += .25*(Math.PI);
+triPlane2.rotation.x += -0.25*(Math.PI);
+triPlane3.position.y += 2.5;
+triPlane3.position.x += 0.275;
+triPlane3.position.z +=0.275;
+triPlane3.rotation.y += .5*(Math.PI);
+triPlane3.rotation.x += 0.25*(Math.PI);
+triPlane4.position.y += 2.5;
+triPlane4.position.x += -0.275;
+triPlane4.position.z += 0.275;
+triPlane4.rotation.y += -.5*(Math.PI);
+triPlane4.rotation.x += -0.25*(Math.PI);
+//triPlane4.rotation.z += 0.25*(Math.PI);
+
+
+
+//triPlane1.geometry.vertices[triPlane1.x] += .34;
+
+
+//var mesh = new THREE.Mesh(geom, mat);
+
+scene.add(plane1, plane2, plane3,plane4, triPlane1, triPlane2, triPlane3,triPlane4);
+
+renderer.setAnimationLoop(() => {
+  renderer.render(scene, camera);
+});
