@@ -46,10 +46,58 @@ var triMesh = new THREE.Mesh(
                 side: THREE.DoubleSide
             }));
 scene.add(triMesh);
+
+var triangleGeom2 = new THREE.BufferGeometry();
+    var vertices2 = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0.55,
+                0.275, 2.5, 0
+            ]);
+triangleGeom2.setAttribute('position', new THREE.BufferAttribute(vertices2, 3));
+var triMesh2 = new THREE.Mesh(
+            triangleGeom2,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh2);
+
+var triangleGeom3 = new THREE.BufferGeometry();
+    var vertices3 = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0.55,
+                -0.275, 2.5, 0.55
+            ]);
+triangleGeom3.setAttribute('position', new THREE.BufferAttribute(vertices3, 3));
+var triMesh3 = new THREE.Mesh(
+            triangleGeom3,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh3);
+var triangleGeom4 = new THREE.BufferGeometry();
+    var vertices4 = new Float32Array([
+                0, 2.84, 0.275,
+                -0.275, 2.5, 0.55,
+                -0.275, 2.5, 0
+            ]);
+triangleGeom4.setAttribute('position', new THREE.BufferAttribute(vertices4, 3));
+var triMesh4 = new THREE.Mesh(
+            triangleGeom4,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh4);
+
+
+
+
+
+
 var geometry1 = new THREE.PlaneGeometry( .55, 5 );
 var demoGeometry = new THREE.PlaneGeometry( .34, .55 );
 var geometry2 = new THREE.PlaneGeometry( .34, .55);
 
+const yellow = new THREE.Color('rgb(255,255,0)'); 
 const white = new THREE.Color('rgb(255,255,255)'); 
 const red = new THREE.Color('rgb(165,42,42)'); 
 const green = new THREE.Color( 0x00ff00 );
@@ -60,7 +108,7 @@ const pink = new THREE.Color('rgb(255,20,147)');
 
 //new THREE.MeshStandardMaterial({color: white, flatShading: true});
 
-var material1 = new THREE.MeshStandardMaterial({color: white, flatShading: true});
+var material1 = new THREE.MeshStandardMaterial({color: yellow, flatShading: true});
 var material2 = new THREE.MeshStandardMaterial({color: red, flatShading: true});
 var material3 = new THREE.MeshStandardMaterial({color: green, flatShading: true});
 var material4 = new THREE.MeshStandardMaterial({color: navy, flatShading: true});
@@ -85,7 +133,7 @@ var triPlane4 = new THREE.Mesh( geometry2, material7);
 */
 
 //height = 2.75 - Math.sqrt((0.34*0.34)+(.34*.34));
-
+//plane1.position.x +=.5;
 plane2.position.x += 0.275;
 plane2.position.z += 0.275;
 plane2.rotation.y += 0.5*(Math.PI);
