@@ -12,6 +12,8 @@ light.position.setScalar(1);
 scene.add(light);
 scene.add(new THREE.AmbientLight(0xffffff, 0.25));
 
+var lavender = new THREE.Color('rgb(230,230,250)');
+//var triMaterial2 = new THREE.MeshBasicMaterial({color: 0xFF0000});
 /*
 var pts = [
 	new THREE.Vector3(0.5, 0.5, 0.5),
@@ -56,9 +58,12 @@ var triangleGeom2 = new THREE.BufferGeometry();
 triangleGeom2.setAttribute('position', new THREE.BufferAttribute(vertices2, 3));
 var triMesh2 = new THREE.Mesh(
             triangleGeom2,
+            //color.set = triMaterial2,
             new THREE.MeshBasicMaterial({
                 side: THREE.DoubleSide
-            }));
+            }),
+            //new THREE.MeshBasicMaterial({color: 0xFF0000})
+            );
 scene.add(triMesh2);
 
 var triangleGeom3 = new THREE.BufferGeometry();
@@ -85,6 +90,7 @@ var triMesh4 = new THREE.Mesh(
             triangleGeom4,
             new THREE.MeshBasicMaterial({
                 side: THREE.DoubleSide
+                
             }));
 scene.add(triMesh4);
 
@@ -102,7 +108,7 @@ const white = new THREE.Color('rgb(255,255,255)');
 const red = new THREE.Color('rgb(165,42,42)'); 
 const green = new THREE.Color( 0x00ff00 );
 const navy = new THREE.Color('rgb(0,0,192)');
-const lavender = new THREE.Color('rgb(230,230,250)');
+//const lavender = new THREE.Color('rgb(230,230,250)');
 const orange = new THREE.Color('rgb(255,69,0)');
 const pink = new THREE.Color('rgb(255,20,147)');
 
@@ -112,11 +118,22 @@ var material1 = new THREE.MeshStandardMaterial({color: yellow, flatShading: true
 var material2 = new THREE.MeshStandardMaterial({color: red, flatShading: true});
 var material3 = new THREE.MeshStandardMaterial({color: green, flatShading: true});
 var material4 = new THREE.MeshStandardMaterial({color: navy, flatShading: true});
-var material5 = new THREE.MeshStandardMaterial({color: lavender, flatShading: true});
-var material6 = new THREE.MeshStandardMaterial({color: orange, flatShading: true});
-var material7 = new THREE.MeshStandardMaterial({color: pink, flatShading: true});
-var material8 = new THREE.LineBasicMaterial( { color: 0x00FF80 } );
 
+/*
+var material5 = new THREE.MeshStandardMaterial({color: lavender, flatShading: true});
+*/
+
+/*
+var material6 = new THREE.MeshStandardMaterial({color: orange, flatShading: true});
+*/
+
+/*
+var material7 = new THREE.MeshStandardMaterial({color: pink, flatShading: true});
+*/
+
+/*
+var material8 = new THREE.LineBasicMaterial( { color: 0x00FF80 } );
+*/
 
 
 
