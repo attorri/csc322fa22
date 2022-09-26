@@ -32,10 +32,23 @@ geom.setIndex([
 ]);
 geom.computeVertexNormals();
 */
-
+scene.add(new THREE.GridHelper(10, 10));
+var triangleGeom = new THREE.BufferGeometry();
+    var vertices = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0,
+                -0.275, 2.5, 0
+            ]);
+triangleGeom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+var triMesh = new THREE.Mesh(
+            triangleGeom,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh);
 var geometry1 = new THREE.PlaneGeometry( .55, 5 );
 var demoGeometry = new THREE.PlaneGeometry( .34, .55 );
-var geometry2 = new THREE.PlaneGeometry( .34, .34);
+var geometry2 = new THREE.PlaneGeometry( .34, .55);
 
 const white = new THREE.Color('rgb(255,255,255)'); 
 const red = new THREE.Color('rgb(165,42,42)'); 
@@ -64,11 +77,12 @@ var plane2 = new THREE.Mesh( geometry1, material2);
 var plane3 = new THREE.Mesh( geometry1, material3);
 var plane4 = new THREE.Mesh( geometry1, material4);
 
-
+/*
 var triPlane1 = new THREE.Mesh( geometry2, material5);
 var triPlane2 = new THREE.Mesh( geometry2, material6);
 var triPlane3 = new THREE.Mesh( geometry2, material1);
 var triPlane4 = new THREE.Mesh( geometry2, material7);
+*/
 
 //height = 2.75 - Math.sqrt((0.34*0.34)+(.34*.34));
 
@@ -84,14 +98,14 @@ plane3.rotation.y += -0.5*(Math.PI);
 plane4.position.z += 0.55;
 
 
-
+/*
 triPlane1.position.y += 2.5;
 triPlane1.rotation.z += 0.25*(Math.PI);
-triPlane1.rotation.x += 0.25*(Math.PI);
+//triPlane1.rotation.x += 0.25*(Math.PI);
 triPlane2.position.y += 2.5;
 triPlane2.position.z += .55;
 triPlane2.rotation.z += .25*(Math.PI);
-triPlane2.rotation.x += -0.25*(Math.PI);
+//triPlane2.rotation.x += -0.25*(Math.PI);
 triPlane3.position.y += 2.5;
 triPlane3.position.x += 0.275;
 triPlane3.position.z +=0.275;
@@ -101,7 +115,8 @@ triPlane4.position.y += 2.5;
 triPlane4.position.x += -0.275;
 triPlane4.position.z += 0.275;
 triPlane4.rotation.y += -.5*(Math.PI);
-triPlane4.rotation.x += -0.25*(Math.PI);
+*/
+//triPlane4.rotation.x += -0.25*(Math.PI);
 //triPlane4.rotation.z += 0.25*(Math.PI);
 
 
@@ -111,7 +126,9 @@ triPlane4.rotation.x += -0.25*(Math.PI);
 
 //var mesh = new THREE.Mesh(geom, mat);
 
-scene.add(plane1, plane2, plane3,plane4, triPlane1, triPlane2, triPlane3,triPlane4);
+/*scene.add(plane1, plane2, plane3,plane4, triPlane1, triPlane2, triPlane3,triPlane4);
+*/
+scene.add(plane1, plane2, plane3,plane4);
 
 renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
