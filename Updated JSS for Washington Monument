@@ -13,7 +13,10 @@ scene.add(light);
 scene.add(new THREE.AmbientLight(0xffffff, 0.25));
 
 var lavender = new THREE.Color('rgb(230,230,250)');
-//var triMaterial2 = new THREE.MeshBasicMaterial({color: 0xFF0000});
+//var triMaterial1 = 
+var triMaterial2 = new THREE.MeshBasicMaterial({color: 0xFF0000});
+var triMaterial3 = new THREE.MeshBasicMaterial({color: 0x0000FF});
+//0x0000ff
 /*
 var pts = [
 	new THREE.Vector3(0.5, 0.5, 0.5),
@@ -58,13 +61,15 @@ var triangleGeom2 = new THREE.BufferGeometry();
 triangleGeom2.setAttribute('position', new THREE.BufferAttribute(vertices2, 3));
 var triMesh2 = new THREE.Mesh(
             triangleGeom2,
-            //color.set = triMaterial2,
+            triMaterial2,
             new THREE.MeshBasicMaterial({
                 side: THREE.DoubleSide
             }),
             //new THREE.MeshBasicMaterial({color: 0xFF0000})
             );
 scene.add(triMesh2);
+
+var triMaterial3 = new THREE.MeshBasicMaterial({color: 0x0000FF});
 
 var triangleGeom3 = new THREE.BufferGeometry();
     var vertices3 = new Float32Array([
@@ -75,6 +80,7 @@ var triangleGeom3 = new THREE.BufferGeometry();
 triangleGeom3.setAttribute('position', new THREE.BufferAttribute(vertices3, 3));
 var triMesh3 = new THREE.Mesh(
             triangleGeom3,
+            //triMaterial3,
             new THREE.MeshBasicMaterial({
                 side: THREE.DoubleSide
             }));
@@ -88,6 +94,7 @@ var triangleGeom4 = new THREE.BufferGeometry();
 triangleGeom4.setAttribute('position', new THREE.BufferAttribute(vertices4, 3));
 var triMesh4 = new THREE.Mesh(
             triangleGeom4,
+            
             new THREE.MeshBasicMaterial({
                 side: THREE.DoubleSide
                 
