@@ -1,0 +1,179 @@
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 100);
+camera.position.set(3, 9, 12);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+var contrls = new THREE.OrbitControls(camera, renderer.domElement);
+
+var light = new THREE.DirectionalLight(0xffffff, 0.75);
+light.position.setScalar(1);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+var lavender = new THREE.Color('rgb(230,230,250)');
+var triMaterial2 = new THREE.MeshBasicMaterial({color: 0xFF0000});
+var triMaterial3 = new THREE.MeshBasicMaterial({color: 0x0000FF});
+
+//scene.add(new THREE.GridHelper(10, 10));
+
+/*
+GridHelper helpful during coding process
+*/
+var triangleGeom = new THREE.BufferGeometry();
+    var vertices = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0,
+                -0.275, 2.5, 0
+            ]);
+triangleGeom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+var triMesh = new THREE.Mesh(
+            triangleGeom,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh);
+
+var triangleGeom2 = new THREE.BufferGeometry();
+    var vertices2 = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0.55,
+                0.275, 2.5, 0
+            ]);
+triangleGeom2.setAttribute('position', new THREE.BufferAttribute(vertices2, 3));
+var triMesh2 = new THREE.Mesh(
+            triangleGeom2,
+            triMaterial2,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh2);
+
+/*
+I attempted to change the colors of the other triangles at the top, but when I did place a color there, the triangle would either disappear 
+and/or a long error message would be shown.
+*/
+
+var triMaterial3 = new THREE.MeshBasicMaterial({color: 0x0000FF});
+var triMat = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+
+var triangleGeom3 = new THREE.BufferGeometry();
+    var vertices3 = new Float32Array([
+                0, 2.84, 0.275,
+                0.275, 2.5, 0.55,
+                -0.275, 2.5, 0.55
+            ]);
+triangleGeom3.setAttribute('position', new THREE.BufferAttribute(vertices3, 3));
+var triMesh3 = new THREE.Mesh(
+            triangleGeom3,
+            //triMat,
+            //triMaterial3,
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+            }));
+scene.add(triMesh3);
+var triangleGeom4 = new THREE.BufferGeometry();
+    var vertices4 = new Float32Array([
+                0, 2.84, 0.275,
+                -0.275, 2.5, 0.55,
+                -0.275, 2.5, 0
+            ]);
+triangleGeom4.setAttribute('position', new THREE.BufferAttribute(vertices4, 3));
+var triMesh4 = new THREE.Mesh(
+            triangleGeom4,
+            
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+                
+            }));
+scene.add(triMesh4);
+
+var grey = new THREE.Color( 0xdddddd );
+
+var rectMat = new THREE.MeshBasicMaterial( {color: 0xdddddd} );
+
+/*
+"rectanglefloat" meant to replace plane1. 
+
+Plane1 is only displayed when looking up at the structure from the 
+bottom; 
+the yellow rectangle mixed with the white rectangular structure is plane1. 
+
+Given that plane1 does not show when I rotate the monument, 
+I had to create a rectangular structure with a float32 array. 
+
+*/
+var rectanglefloat = new THREE.BufferGeometry();
+    var rectVerts = new Float32Array([
+               // -0.275,2.5,0,
+                0.275,2.5,0,
+                0.275,-2.5,0,
+                -0.275,-2.5,0,
+                
+                -0.275,2.5,0,
+                -0.275,-2.5,0,
+                0.275,2.5,0
+            ]);
+rectanglefloat.setAttribute('position', new THREE.BufferAttribute(rectVerts, 3));
+var rectMesh = new THREE.Mesh(
+            rectanglefloat,
+            //rectMat
+            /*
+            Wanted to change the color for the 
+            rectangle Float32 array, but when I changed it, 
+            the array turned into a triangle.
+            */
+            new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide
+                
+            }));
+scene.add(rectMesh);
+
+
+
+var geometry1 = new THREE.PlaneGeometry( .55, 5 );
+var demoGeometry = new THREE.PlaneGeometry( .34, .55 );
+var geometry2 = new THREE.PlaneGeometry( .34, .55);
+
+const yellow = new THREE.Color('rgb(255,255,0)'); 
+const white = new THREE.Color('rgb(255,255,255)'); 
+const red = new THREE.Color('rgb(165,42,42)'); 
+const green = new THREE.Color( 0x00ff00 );
+const navy = new THREE.Color('rgb(0,0,192)');
+
+const orange = new THREE.Color('rgb(255,69,0)');
+const pink = new THREE.Color('rgb(255,20,147)');
+
+
+var material1 = new THREE.MeshStandardMaterial({color: yellow, flatShading: true});
+var material2 = new THREE.MeshStandardMaterial({color: red, flatShading: true});
+var material3 = new THREE.MeshStandardMaterial({color: green, flatShading: true});
+var material4 = new THREE.MeshStandardMaterial({color: navy, flatShading: true});
+
+
+
+
+var plane1 = new THREE.Mesh( geometry1, material1 );
+var plane2 = new THREE.Mesh( geometry1, material2);
+var plane3 = new THREE.Mesh( geometry1, material3);
+var plane4 = new THREE.Mesh( geometry1, material4);
+
+
+plane2.position.x += 0.275;
+plane2.position.z += 0.275;
+plane2.rotation.y += 0.5*(Math.PI);
+plane3.position.x += -0.275;
+plane3.position.z += 0.275;
+plane3.rotation.y += -0.5*(Math.PI);
+plane4.position.z += 0.55;
+
+
+
+scene.add(plane1, plane2, plane3,plane4);
+
+
+
+renderer.setAnimationLoop(() => {
+  renderer.render(scene, camera);
+});
