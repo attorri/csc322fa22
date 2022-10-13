@@ -1,0 +1,194 @@
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 100);
+camera.position.set(3, 9, 12);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+var contrls = new THREE.OrbitControls(camera, renderer.domElement);
+
+var light = new THREE.DirectionalLight(0xffffff, 0.75);
+light.position.setScalar(1);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+var lavender = new THREE.Color('rgb(230,230,250)');
+//var triMaterial2 = new THREE.MeshBasicMaterial({color: 0xFF0000});
+//var triMaterial3 = new THREE.MeshBasicMaterial({color: 0x0000FF});
+
+//scene.add(new THREE.GridHelper(10, 10));
+
+/*
+GridHelper helpful during coding process
+*/
+
+const m1 = new THREE.LineBasicMaterial( { color: 0x00FF80 } );
+
+const p1 = [];
+p1.push( new THREE.Vector3( 0, 0, 0 ) );
+p1.push( new THREE.Vector3( 1, 1, 0 ) );
+p1.push( new THREE.Vector3( 1, 0, -1 ) );
+p1.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry1 = new THREE.BufferGeometry().setFromPoints( p1 );
+
+const line = new THREE.Line( geometry1, m1 );
+
+scene.add( line );
+
+const m2 = new THREE.LineBasicMaterial( { color: 0x00FFD4 } );
+
+const p2 = [];
+p2.push( new THREE.Vector3( 0, 0, 0 ) );
+p2.push( new THREE.Vector3( 1, 1, 0 ) );
+p2.push( new THREE.Vector3( 1, 0, 0 ) );
+p2.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry2 = new THREE.BufferGeometry().setFromPoints( p2 );
+
+const line2 = new THREE.Line( geometry2, m2 );
+
+scene.add( line2 );
+
+const m3 = new THREE.LineBasicMaterial( { color: 0xFF0000 } );
+
+const p3 = [];
+p3.push( new THREE.Vector3( 1, 0, 0 ) );
+p3.push( new THREE.Vector3( 1, 1, 0 ) );
+p3.push( new THREE.Vector3( 1, 0, -1 ) );
+p3.push( new THREE.Vector3( 1, 0, 0 ) );
+
+
+const geometry3 = new THREE.BufferGeometry().setFromPoints( p3 );
+
+const line3 = new THREE.Line( geometry3, m3 );
+
+scene.add( line3 );
+
+const m4 = new THREE.LineBasicMaterial( { color: 0xDDE000 } );
+
+const p4 = [];
+p4.push( new THREE.Vector3( 0, 0, 0 ) );
+p4.push( new THREE.Vector3( 1, 0, -1 ) );
+p4.push( new THREE.Vector3( 0, 1, -1 ) );
+p4.push( new THREE.Vector3( 0, 0, 0 ) );
+//points.push( new THREE.Vector3( 1, 0, 0 ) );
+
+const geometry4 = new THREE.BufferGeometry().setFromPoints( p4 );
+
+const line4 = new THREE.Line( geometry4, m4 );
+
+scene.add( line4 );
+
+const m5 = new THREE.LineBasicMaterial( { color: 0x066922 } );
+
+const p5 = [];
+p5.push( new THREE.Vector3( 0, 0, 0 ) );
+p5.push( new THREE.Vector3( 1, 1, 0 ) );
+p5.push( new THREE.Vector3( 0, 1, -1 ) );
+p5.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry5 = new THREE.BufferGeometry().setFromPoints( p5 );
+
+const line5 = new THREE.Line( geometry5, m5 );
+
+scene.add( line5 );
+
+const m6 = new THREE.LineBasicMaterial( { color: 0x005D7D } );
+
+const p6 = [];
+p6.push( new THREE.Vector3( 1, 0, -1 ) );
+p6.push( new THREE.Vector3( 1, 1, 0 ) );
+p6.push( new THREE.Vector3( 0, 1, -1 ) );
+p6.push( new THREE.Vector3( 1, 0, -1 ) );
+
+
+const geometry6 = new THREE.BufferGeometry().setFromPoints( p6 );
+
+const line6 = new THREE.Line( geometry6, m6 );
+
+scene.add( line6 );
+
+const m7 = new THREE.LineBasicMaterial( { color: 0x3E00FF } );
+
+const p7 = [];
+p7.push( new THREE.Vector3( 1, 1, 0 ) );
+p7.push( new THREE.Vector3( 1, 1, -1 ) );
+p7.push( new THREE.Vector3( 1, 0, -1 ) );
+p7.push( new THREE.Vector3( 1, 1, 0 ) );
+
+
+const geometry7 = new THREE.BufferGeometry().setFromPoints( p7 );
+
+const line7 = new THREE.Line( geometry7, m7 );
+
+scene.add( line7 );
+
+
+const m8 = new THREE.LineBasicMaterial( { color: 0xFF0051 } );
+
+const p8 = [];
+p8.push( new THREE.Vector3( 0, 0, -1 ) );
+p8.push( new THREE.Vector3( 1, 1, -1 ) );
+p8.push( new THREE.Vector3( 0, 1, -1 ) );
+p8.push( new THREE.Vector3( 0, 0, -1 ) );
+
+
+const geometry8 = new THREE.BufferGeometry().setFromPoints( p8 );
+
+const line8 = new THREE.Line( geometry8, m8 );
+
+scene.add( line8 );
+
+const m9 = new THREE.LineBasicMaterial( { color: 0xFFFFFF } );
+
+const p9 = [];
+p9.push( new THREE.Vector3( 0, 0, 0 ) );
+p9.push( new THREE.Vector3( 1, 0, -1 ) );
+p9.push( new THREE.Vector3( 0, 0, -1 ) );
+p9.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry9 = new THREE.BufferGeometry().setFromPoints( p9 );
+
+const line9 = new THREE.Line( geometry9, m9 );
+
+scene.add( line9 );
+
+
+const m10 = new THREE.LineBasicMaterial( { color: 0x9A7E1F } );
+
+const p10 = [];
+p10.push( new THREE.Vector3( 0, 0, 0 ) );
+p10.push( new THREE.Vector3( 0, 1, 0 ) );
+p10.push( new THREE.Vector3( 0, 1, -1 ) );
+p10.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry10 = new THREE.BufferGeometry().setFromPoints( p10 );
+
+const line10 = new THREE.Line( geometry10, m10 );
+
+scene.add( line10 );
+
+const m11 = new THREE.LineBasicMaterial( { color: 0xA94982 } );
+
+const p11 = [];
+p11.push( new THREE.Vector3( 0, 0, 0 ) );
+p11.push( new THREE.Vector3( 0, 1, 0 ) );
+p11.push( new THREE.Vector3( 1, 1, 0 ) );
+p11.push( new THREE.Vector3( 0, 0, 0 ) );
+
+
+const geometry11 = new THREE.BufferGeometry().setFromPoints( p11 );
+
+const line11 = new THREE.Line( geometry11, m11 );
+
+scene.add( line11 );
+
+renderer.setAnimationLoop(() => {
+  renderer.render(scene, camera);
+});
